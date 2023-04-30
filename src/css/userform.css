@@ -1,0 +1,29 @@
+.section{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    
+}
+.section>div{
+    display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 20px;
+
+}
+.section-sub-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+}
+.input-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.input-container>div{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
