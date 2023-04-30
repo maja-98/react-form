@@ -1,0 +1,24 @@
+{"users":[
+    {
+        "name":"John Doe",
+        "dateOfBirthorAge":22,
+        "sex":"M",
+        "mobile":"+912312323132",
+        "govtIdType":"Aadhar",
+        "govtIdNumber":"123123123123",
+        "guardianLable":"Mr",
+        "guardianName":"Doe",
+        "email":"johndoe@gmail.com",
+        "emergencyContactNumber":"+911231231231",
+        "address":"123 St",
+        "state":"Nagaland",
+        "city":"Kohima",
+        "country":"India",
+        "pincode":"576312",
+        "occupation":"Engineer",
+        "religion":"Christian",
+        "maritalStatus":"Married",
+        "bloodGroup":"A+",
+        "nationality":"Indian"
+    }
+]}
