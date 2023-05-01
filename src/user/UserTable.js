@@ -31,7 +31,7 @@ const UserTable = () => {
         destroy: true,
         searching: true,
         buttons: ["excel", "print"],
-        lengthMenu: [10, 20, 30],
+        lengthMenu: [3, 10, 20, 30],
       });
       return () => {
         table.destroy();

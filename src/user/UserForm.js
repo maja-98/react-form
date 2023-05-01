@@ -78,14 +78,13 @@ const schema = yup.object().shape(
       } else if (idType[0] === "PAN") {
         return yup
           .string()
-          .required("Enter PAN number or change ID Type to Blank")
+          .required("Enter PAN number or Change ID Type to Blank")
           .length(8, "Enter correct PAN number")
           .test(
             "pan_validation",
             "Enter Valid Alphanumerical PAN number",
             (value) => {
               const array = Array.from(value).map((val) => isNaN(val));
-              console.log(array);
               const allNaN = array.every(Boolean);
               const someNaN = array.some(Boolean);
               return !allNaN && someNaN;
@@ -106,12 +105,22 @@ const UserForm = () => {
     control,
     setValue,
   } = useForm({ resolver: yupResolver(schema) });
+  const stateVal = useWatch({ name: "state", control });
+
+  const [
+    addNewUser,
+    {
+      isLoading: isCreateUserLoading,
+      isError: isCreateUserError,
+      error: createUserError,
+    },
+  ] = useAddNewUserMutation();
+
   const [overlay, setOverlay] = useState(false);
   const [message, setMessage] = useState("");
-  const stateVal = useWatch({ name: "state", control });
   const [cityOptions, setCityOptions] = useState([]);
+
   useEffect(() => {
-    console.log(stateVal);
     setValue("state", stateVal);
     if (stateVal) {
       setCityOptions(
@@ -123,14 +132,7 @@ const UserForm = () => {
       setCityOptions([]);
     }
   }, [stateVal, setValue]);
-  const [
-    addNewUser,
-    {
-      isLoading: isCreateUserLoading,
-      isError: isCreateUserError,
-      error: createUserError,
-    },
-  ] = useAddNewUserMutation();
+
   const handleClose = () => setOverlay(false);
   const handleFormSubmit = async (data) => {
     let age;
