@@ -3,6 +3,7 @@ import $ from "jquery";
 
 import { useGetUsersQuery } from "./userAPISlice";
 
+import "jquery/dist/jquery.min.js";
 import "datatables.net-dt/js/dataTables.dataTables";
 import "datatables.net-buttons/js/dataTables.buttons.js";
 import "datatables.net-buttons/js/buttons.flash.js";
@@ -25,7 +26,7 @@ const UserTable = () => {
           { data: "fullAddress", title: "Address" },
           { data: "govtId", title: "Govt ID" },
           { data: "guardian", title: "Guardian Details" },
-          { data: "nationality", title: "nationality" },
+          { data: "nationality", title: "Nationality" },
         ],
         destroy: true,
         searching: true,

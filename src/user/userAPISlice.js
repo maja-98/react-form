@@ -14,17 +14,22 @@ export const apiSlice = createApi({
         const transformedData = userData.map((data) => ({
           ...data,
           ageSex: data.dateOfBirthorAge.toLocaleString() + "/" + data.sex,
-          govtId: data.govtIdType + ":" + data.govtIdNumber ?? "",
+          govtId:
+            data.govtIdType.length > 0
+              ? data.govtIdType + ":" + data.govtIdNumber
+              : "",
           guardian:
             data.guardianLabel && data.guardianName
               ? data.guardianLabel + "." + data.guardianName
               : "",
-          fullAddress: [
-            data.address,
-            data.state,
-            data.country,
-            data.pincode,
-          ].join(", "),
+          fullAddress:
+            [data.address, data.state, data.country, data.pincode].join(
+              ", "
+            ) !== ", , , "
+              ? [data.address, data.state, data.country, data.pincode].join(
+                  ", "
+                )
+              : "",
         }));
         return transformedData;
       },
