@@ -4,7 +4,7 @@
 div{
     width: 100%;
 }
-input,select{
+.input-container>input,.input-container>select{
     width: 100%;
     padding: 4px;
 }
@@ -73,4 +73,27 @@ small{
     bottom: -2px;
     width: 100%;
     text-align: right;
+}
+.top{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.left-col {
+    float: left;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+}
+
+
+.right-col {
+    float: left;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

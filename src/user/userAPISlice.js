@@ -10,6 +10,24 @@ export const apiSlice = createApi({
   endpoints: (builder) => ({
     getUsers: builder.query({
       query: () => "/users",
+      transformResponse: (userData) => {
+        const transformedData = userData.map((data) => ({
+          ...data,
+          ageSex: data.dateOfBirthorAge.toLocaleString() + "/" + data.sex,
+          govtId: data.govtIdType + ":" + data.govtIdNumber ?? "",
+          guardian:
+            data.guardianLabel && data.guardianName
+              ? data.guardianLabel + "." + data.guardianName
+              : "",
+          fullAddress: [
+            data.address,
+            data.state,
+            data.country,
+            data.pincode,
+          ].join(", "),
+        }));
+        return transformedData;
+      },
       providesTags: (result) => {
         return [
           { type: "User", id: "LIST" },
